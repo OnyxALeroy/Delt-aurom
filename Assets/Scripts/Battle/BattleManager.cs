@@ -7,6 +7,10 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private GameObject menuPrefab;
     [SerializeField] private GameObject menusStorage;
 
+    [Header("Player")]
+    [SerializeField] private Controls controls;
+    [SerializeField] private GameObject soul;
+
     private CharacterMenu[] menus = new CharacterMenu[3];
 
     void Start() {

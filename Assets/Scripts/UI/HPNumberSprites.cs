@@ -26,7 +26,6 @@ public class HPNumberSprites : MonoBehaviour
         for (int charIndex = text.Length - 1; charIndex >= 0; charIndex--)
         {
             int digit = text[charIndex] - '0';
-            Debug.Log(digit);
             slots[slotIndex].sprite = digitSprites[digit];
             slots[slotIndex].enabled = true;
             slotIndex--;
