@@ -3388,6 +3388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8933214632096826202}
   - component: {fileID: 1818237025556795831}
+  - component: {fileID: 2695196779897447046}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -3445,6 +3446,38 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2695196779897447046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339046583537187651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e74dedbe5a35043bf8608aad24ee22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImages:
+  - {fileID: 3279897735122751663}
+  - {fileID: 8597753702881775823}
+  - {fileID: 4242369084423147343}
+  - {fileID: 977701462312219920}
+  - {fileID: 6181149983706328286}
+  unselectedButtonSprites:
+  - {fileID: 2194243981559744025, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: 1845301571344876508, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: -2856088140430223287, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: -928066109432893357, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: -4131630366209690075, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  selectedButtonSprites:
+  - {fileID: 7726307686770892935, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: 7204013016340129671, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: 7215416296811143041, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: 5694292653966732678, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  - {fileID: -5427630353729409296, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  mainCharacterActUnselectedButtonSprite: {fileID: -5245320120822873226, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
+  mainCharacterActSelectedButtonSprite: {fileID: 5937797199647109957, guid: b2b49fd26ee4dbe4890f49bc8d6f88fb, type: 3}
 --- !u!1 &7533207334861831568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,6 +4129,7 @@ MonoBehaviour:
   - {fileID: 1806553099598849897}
   - {fileID: 199313970629918136}
   - {fileID: 1934154600736717289}
+  menuOptions: {fileID: 2695196779897447046}
   passiveNameText: {fileID: 157353858207527703}
   passiveHpBar: {fileID: 2158172216215836588}
   passiveHead: {fileID: 4543146336971663416}

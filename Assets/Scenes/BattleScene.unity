@@ -882,7 +882,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4971a1788d854bc499aa8ebf472e0239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleManager: {fileID: 1951213018}
   soulManager: {fileID: 1712196634}
+  cancelAction:
+    m_Name: Cancel
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b95a6ef3-ab50-4614-8762-07e20143a52f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dfab67e1-b4c3-4668-b4b8-ec05cbba2454
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  validateAction:
+    m_Name: Validate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d801d791-7855-43e5-b24c-dfd1af596620
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!4 &1078623071
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,7 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617fc8cd49dd1024e9ef70c3f383ba11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
 --- !u!1 &1951213017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1081,7 @@ MonoBehaviour:
   menuPrefab: {fileID: 9196533086878994018, guid: 8e6dcf29a9a2d754a9a0c643a5ed4f2f, type: 3}
   menusStorage: {fileID: 450985970}
   controls: {fileID: 1078623070}
-  soul: {fileID: 1712196631}
+  soulManager: {fileID: 1712196634}
 --- !u!4 &1951213019
 Transform:
   m_ObjectHideFlags: 0

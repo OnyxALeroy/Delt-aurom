@@ -19,12 +19,21 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] private HpBar activeHpBar;
     [SerializeField] private Image activeHead;
     [SerializeField] private Image[] activeColorDependents;
-    
+    [SerializeField] private MenuOptions menuOptions;
+
     [Header("Passive References")]
     [SerializeField] private TextDisplayer passiveNameText;
     [SerializeField] private HpBar passiveHpBar;
     [SerializeField] private Image passiveHead;
     [SerializeField] private Image[] passiveColorDependents;
+
+    private int currentOptionIndex = 0;
+    public int CurrentOptionIndex => currentOptionIndex;
+
+    private bool hasInput = false;
+    public bool HasInput => hasInput;
+
+    // --------------------------------------------------------------------------------------------
 
     void Start()
     {
@@ -32,13 +41,7 @@ public class CharacterMenu : MonoBehaviour
         RefreshMenu();
     }
 
-    void Update()
-    {
-        // FIXME: remove this later
-        if (Input.GetKeyDown(KeyCode.M)) {
-            ToggleMenu();   
-        }
-    }
+    void Update() { }
 
     private void RefreshMenu()
     {
@@ -58,10 +61,10 @@ public class CharacterMenu : MonoBehaviour
         RefreshMenu();
     }
 
-    public void ToggleMenu()
+    public void Reset()
     {
-        isActive = !isActive;
-        RefreshMenu();
+        hasInput = false;
+        DeactivateMenu();
     }
 
     public void UpdateInfo(int currentHp, int maxHp) {
@@ -92,5 +95,56 @@ public class CharacterMenu : MonoBehaviour
         passiveHead.sprite = playerData.headSprite;
         passiveHpBar.SetCurrentHP(currentHp);
         passiveHpBar.SetMaxHP(maxHp);
+    }
+
+    // --------------------------------------------------------------------------------------------
+
+    public void SetMainCharacter(bool isMainCharacter)
+    {
+        menuOptions.SetMainCharacter(isMainCharacter);
+    }
+
+    // --------------------------------------------------------------------------------------------
+
+    public void HandleMoveInput(Vector2 input)
+    {
+        if (input.x < 0)
+        {
+            currentOptionIndex--;
+            if (currentOptionIndex < 0) { currentOptionIndex = 4; }
+        } else if (input.x > 0)
+        {
+            currentOptionIndex++;
+            if (currentOptionIndex > 4) { currentOptionIndex = 0; }
+        }
+
+        if (input.y < 0)
+        {
+        }
+        else if (input.y > 0)
+        {
+        }
+        
+        menuOptions.UpdateButtons(currentOptionIndex);
+    }
+
+    public bool Validate(ref int menuId) {
+        // TODO: change this
+        menuId++;
+        if (menuId >= 3) { menuId = 2; }
+
+        hasInput = true;
+
+        return true;
+    }
+
+    public bool Cancel(ref int menuId) {
+        // TODO: change this
+        menuId--;
+        if (menuId < 0) { menuId = 0; }
+
+        hasInput = false;
+
+        return true;
     }
 }
