@@ -64,6 +64,10 @@ public class Controls : MonoBehaviour
         {
             battleManager.OnMenuMoveInput(lastMoveInput);
             lastMoveInput = new Vector2(0, 0);
+        } else if (battleManager.CurrentState == BattleState.EnemyAction)
+        {
+            lastMoveInput = Vector2.zero;
+            soulManager.Move(lastMoveInput);
         }
     }
 

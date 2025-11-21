@@ -66,7 +66,6 @@ public class BattleManager : MonoBehaviour
                 if (currentMenuIndex >= menus.Length)
                 {
                     ProcessInput();
-                    Debug.Log("Current turn " + turn + " ; size of list: " + enemyData.attacks.Count);
                     GetCurrentEnemyAttack().StartAttack(enemyData.GetAttackOfTurn(turn), this);
                     SetState(BattleState.EnemyAction);
                 }
@@ -126,6 +125,8 @@ public class BattleManager : MonoBehaviour
 
     // --------------------------------------------------------------------------------------------
 
+    #region MenuInput
+
     public void OnMenuMoveInput(Vector2 input)
     {
         menus[currentMenuIndex].HandleMoveInput(input);
@@ -156,4 +157,6 @@ public class BattleManager : MonoBehaviour
     public void ProcessInput() {
         foreach (CharacterMenu menu in menus) { menu.DeactivateMenu(); }
     }
+
+    #endregion
 }
