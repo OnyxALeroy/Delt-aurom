@@ -11,13 +11,18 @@ public enum BattleState {
 public class BattleManager : MonoBehaviour
 {
     [Header("Battle Menu")]
-    [SerializeField] private PlayerData[] playableCharacters;
-    [SerializeField] private GameObject menuPrefab;
-    [SerializeField] private GameObject menusStorage;
+    [SerializeField] public PlayerData[] playableCharacters;
+    [SerializeField] public GameObject menuPrefab;
+    [SerializeField] public GameObject menusStorage;
 
     [Header("Player")]
-    [SerializeField] private Controls controls;
-    [SerializeField] private SoulManager soulManager;
+    [SerializeField] public Controls controls;
+    [SerializeField] public SoulManager soulManager;
+
+    [Header("Enemy")]
+    [SerializeField] public Playground playground;
+    [SerializeField] public EnemyData enemyData;
+    [SerializeField] public GameObject enemyStorage;
 
     // UI-related
     private CharacterMenu[] menus = new CharacterMenu[3];
@@ -27,6 +32,8 @@ public class BattleManager : MonoBehaviour
     public event Action<BattleState> OnStateChanged;
     private BattleState currentState = BattleState.BattleTurnStart;
     public BattleState CurrentState => currentState;
+    private int turn = 0;
+    public int Turn => turn;
 
     private void Start() {
         // Menu setup
@@ -59,16 +66,35 @@ public class BattleManager : MonoBehaviour
                 if (currentMenuIndex >= menus.Length)
                 {
                     ProcessInput();
+                    Debug.Log("Current turn " + turn + " ; size of list: " + enemyData.attacks.Count);
+                    GetCurrentEnemyAttack().StartAttack(enemyData.GetAttackOfTurn(turn), this);
                     SetState(BattleState.EnemyAction);
                 }
                 break;
             case BattleState.EnemyAction:
-                foreach (CharacterMenu menu in menus) { menu.DeactivateMenu(); }
-                SetState(BattleState.BattleTurnStart);
+                AttackBehavior attackBehavior = GetCurrentEnemyAttack();
+
+                if (attackBehavior.IsFinished())
+                {
+                    attackBehavior.EndAttack();
+                    SetState(BattleState.BattleTurnStart);
+                    turn++;
+                } else
+                {
+                    attackBehavior.UpdateAttack();
+                }
                 break;
             default:
                 break;
         }
+    }
+
+    // --------------------------------------------------------------------------------------------
+
+    public AttackBehavior GetCurrentEnemyAttack()
+    {
+        GameObject prefab = enemyData.attacks[turn].behaviorPrefab;
+        return prefab.GetComponent<AttackBehavior>();
     }
 
     // --------------------------------------------------------------------------------------------
@@ -127,5 +153,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void ProcessInput() { }
+    public void ProcessInput() {
+        foreach (CharacterMenu menu in menus) { menu.DeactivateMenu(); }
+    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Character", menuName = "Delt-aurom/Playable Character", order = 2)]
+[CreateAssetMenu(fileName = "Character", menuName = "Delt-aurom/Playable Character", order = 3)]
 public class PlayerData : ScriptableObject
 {
     public Sprite headSprite;
