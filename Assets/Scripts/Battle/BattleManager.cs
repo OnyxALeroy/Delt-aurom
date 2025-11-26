@@ -10,6 +10,9 @@ public enum BattleState {
 
 public class BattleManager : MonoBehaviour
 {
+    [Header("Battle Renderer")]
+    [SerializeField] public BattleRenderer battleRenderer;
+
     [Header("Battle Menu")]
     [SerializeField] public PlayerData[] playableCharacters;
     [SerializeField] public GameObject menuPrefab;
@@ -46,10 +49,13 @@ public class BattleManager : MonoBehaviour
             menus[i].SetMainCharacter(i == 0);
         }
 
+        battleRenderer.SetupBattle();
         SetState(BattleState.BattleTurnStart);
     }
 
     private void Update() {
+        battleRenderer.UpdateRenderer();
+
         switch (currentState) { 
             case BattleState.BattleTurnStart:
                 currentMenuIndex = 0;

@@ -935,7 +935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1500336648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,6 +1125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951213019}
   - component: {fileID: 1951213018}
+  - component: {fileID: 1951213020}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -1144,6 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19ead04cd2efb34db60ae476a92162f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleRenderer: {fileID: 1951213020}
   playableCharacters:
   - {fileID: 11400000, guid: 33470c856ce05334f9c18b9afedec41d, type: 2}
   - {fileID: 11400000, guid: 41d5967abd8d85b428765a457187238a, type: 2}
@@ -1170,6 +1172,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1951213020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951213017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b20717463828394ea3d472a605df44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultX: 4
+  defaultY: 1.5
 --- !u!1 &2063257101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,11 +1293,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 775201917}
   - {fileID: 453467277}
   - {fileID: 1500336648}
   - {fileID: 1866815955}
   - {fileID: 1712196632}
+  - {fileID: 775201917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}

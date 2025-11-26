@@ -41,5 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemy
+    uniqueID: 4072495107
+    locked: 0
+  - name: Soul
+    uniqueID: 3562280237
+    locked: 0
+  - name: BattleElements
+    uniqueID: 2317170053
+    locked: 0
   m_RenderingLayers:
   - Default

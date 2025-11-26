@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc690f7735b8e1d4a913a4df141e20d5, type: 3}
   m_Name: Repeira
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -1724822148711148119, guid: 64ebf0ca88e3663459ea56377e54fcef, type: 3}
   enemyName: Kris
   maxHp: 123
   attacks:
